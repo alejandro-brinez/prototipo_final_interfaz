@@ -1,0 +1,116 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Campus Verde Académico · Notas del docente</title>
+<style>
+:root{--bg:#f2f6f3;--card:#fff;--ink:#17261d;--mut:#5c6f63;--line:#d6e2da;--pri:#0b7a3e;--pri2:#e6f4ec;--err:#b42318;--warn:#9a5b00;--sh:0 2px 10px rgba(11,60,30,.08);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1713;--card:#17211b;--ink:#e8f0ea;--mut:#9db0a4;--line:#2a3a31;--pri:#3fbf7a;--pri2:#173326;--err:#ff8a80;--warn:#f0b35a;--sh:none}}
+:root[data-theme="dark"]{--bg:#0f1713;--card:#17211b;--ink:#e8f0ea;--mut:#9db0a4;--line:#2a3a31;--pri:#3fbf7a;--pri2:#173326;--err:#ff8a80;--warn:#f0b35a;--sh:none}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 "Segoe UI",system-ui,Arial,sans-serif}
+header{background:#0b7a3e;color:#fff;padding:12px 16px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.logo{width:38px;height:38px;border-radius:50%;border:2px solid #fff;display:grid;place-items:center;font-weight:700;font-size:12px}
+header b{font-size:18px}header small{display:block;opacity:.85;font-size:12px}header div:nth-child(2){flex:1}
+.pill{font:inherit;font-size:13px;border:1px solid #fff;background:transparent;color:#fff;border-radius:16px;padding:4px 12px;cursor:pointer}.pill.off{background:#b42318;border-color:#b42318}
+main{max-width:900px;margin:0 auto;padding:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;box-shadow:var(--sh);margin-bottom:14px}
+h2{margin:0 0 8px;font-size:18px}.st{font-size:13px;color:var(--mut)}.st b{color:var(--pri)}
+.top{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:8px}
+.bar{height:10px;background:var(--line);border-radius:6px;overflow:hidden;flex:1;min-width:120px}.bar i{display:block;height:100%;background:var(--pri);transition:width .3s}
+.gl{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.g{display:flex;gap:12px;align-items:center;text-align:left;background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:14px;padding:14px;cursor:pointer;font:inherit;box-shadow:var(--sh)}
+.g:hover{border-color:var(--pri)}.g small{display:block;color:var(--mut)}
+.ring{--p:0;width:52px;height:52px;border-radius:50%;background:conic-gradient(var(--pri) calc(var(--p)*1%),var(--line) 0);display:grid;place-items:center;flex:none}
+.ring span{width:40px;height:40px;border-radius:50%;background:var(--card);display:grid;place-items:center;font-size:12px;font-weight:700}
+.tools{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:6px}.tools input[type=search]{flex:1;min-width:160px}
+.r{display:grid;grid-template-columns:1fr 100px 100px;gap:8px;align-items:center;padding:9px 8px;border-top:1px solid var(--line);border-left:4px solid transparent}
+.r.pend{border-left-color:var(--warn)}
+@media(max-width:520px){.r{grid-template-columns:1fr 90px}.r .chip{grid-column:1/-1;justify-self:start}}
+input,textarea{font:inherit;color:var(--ink);background:var(--bg);border:2px solid var(--line);border-radius:8px;padding:9px 10px;width:100%}
+input[type=checkbox]{width:auto}input:focus,textarea:focus{outline:none;border-color:var(--pri)}input.bad,textarea.bad{border-color:var(--err)}
+.msg{grid-column:1/-1;color:var(--err);font-size:13px}
+.chip{font-size:12px;padding:3px 10px;border-radius:12px;border:1px solid var(--line);color:var(--mut);text-align:center}
+.chip.borrador{color:var(--warn);border-color:var(--warn)}.chip.guardado{color:var(--pri);border-color:var(--pri);background:var(--pri2)}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}.chips button{background:var(--pri2);color:var(--pri);border:1px solid var(--pri);border-radius:16px;padding:5px 11px;font-size:13px;cursor:pointer;font-family:inherit}
+.act{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.btn{font:inherit;border-radius:10px;border:1px solid var(--pri);padding:10px 18px;cursor:pointer;background:var(--pri);color:#fff;font-weight:600}
+.btn.sec{background:transparent;color:var(--pri)}.btn:disabled{opacity:.4;cursor:not-allowed}
+.lk{font:inherit;font-size:12px;border:0;background:none;color:var(--pri);text-decoration:underline;cursor:pointer}
+.ban{display:none;border:1px solid #f0c27a;background:#fff4e0;color:#7a4a00;border-radius:10px;padding:10px;margin-bottom:10px;font-size:14px}
+.ban.on{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}.ban button{font:inherit;font-size:13px;margin-left:4px}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(16px + env(safe-area-inset-bottom,0px));background:#0b7a3e;color:#fff;padding:12px 18px;border-radius:10px;display:none;box-shadow:0 4px 16px rgba(0,0,0,.25);z-index:5}
+.hi{border-top:1px solid var(--line);padding:8px 0;font-size:14px}.hi ul{margin:4px 0 0;padding-left:18px;color:var(--mut)}
+dialog{border:1px solid var(--line);border-radius:14px;background:var(--card);color:var(--ink);max-width:460px;width:calc(100% - 32px)}
+dialog::backdrop{background:rgba(0,0,0,.45)}
+</style></head><body>
+<header><div class="logo">UdeC</div><div><b>Campus Verde Académico</b><small>Módulo del docente · Laura Gómez</small></div><button class="pill" id="nb"></button></header>
+<main id="app"></main>
+<dialog id="dg"><h2>Pegar columna de notas</h2><p class="st">Copia una columna desde Excel o Google Sheets y pégala aquí. Se asignará en orden, desde el primer estudiante.</p>
+<textarea id="pt" rows="6" placeholder="4.5&#10;3.8&#10;5.0"></textarea><p id="ps" class="st" aria-live="polite"></p>
+<div class="act"><button class="btn sec" id="pc">Cancelar</button><button class="btn sec" id="pr">Revisar</button><button class="btn" id="pa" disabled>Aplicar</button></div></dialog>
+<div class="toast" id="ts" role="status"></div>
+<script>
+const $=id=>document.getElementById(id);
+const NM=[["Ana Beltrán","Camilo Rojas","Daniela Pardo","Esteban Ruiz","Fabiola Mora","Gabriel Soto","Helena Prada","Iván Cortés"],["Hugo León","Isabel Cruz","Julián Vega","Karen Díaz","Luis Ortiz"],["María Peña","Nicolás Gil","Olga Ramos","Pablo Cano"]];
+const GN=[["Grupo A","Interfaz Hombre Máquina"],["Grupo B","Bases de datos"],["Grupo C","Ingeniería de software"]];
+const IN=[[4.2,3.8,"","","","","",""],[3.5,4.0,4.5,3.0,4.8],["","","",""]];
+const mk=()=>NM.map((a,gi)=>({s:a.map((n,i)=>{const v=IN[gi][i]===""?"":String(IN[gi][i]);return{n,v,saved:v,s:v?"guardado":"pendiente"}}),obs:"",od:false,hist:[],prev:null}));
+let D=mk(),cur=-1,off=false,tm=null,stored=null;
+const chk=v=>{if(v==="")return null;const x=parseFloat(v.replace(",","."));return !isNaN(x)&&x>=0&&x<=5};
+const nrm=v=>String(parseFloat(String(v).replace(",",".")).toFixed(1));
+const hr=()=>new Date().toLocaleTimeString("es-CO",{hour:"2-digit",minute:"2-digit"});
+const cnt=g=>g.s.filter(r=>r.s==="guardado").length;
+function toast(t){const e=$("ts");e.textContent=t;e.style.display="block";clearTimeout(toast.t);toast.t=setTimeout(()=>e.style.display="none",2800)}
+function persist(){try{localStorage.setItem("cv-notas",JSON.stringify({t:hr(),D:D.map(g=>({s:g.s,obs:g.obs,od:g.od,hist:g.hist}))}))}catch(e){}}
+try{const x=JSON.parse(localStorage.getItem("cv-notas")||"null");if(x&&x.D&&x.D.some(g=>g.s.some(r=>r.s==="borrador")))stored=x}catch(e){}
+function setNet(){$("nb").textContent=off?"Sin conexión · reconectar":"En línea · simular caída";$("nb").className="pill"+(off?" off":"");const e=$("er");if(e)e.classList.toggle("on",off)}
+$("nb").onclick=()=>{off=!off;setNet();toast(off?"Sin conexión: tus cambios quedan como borrador":"Conexión restablecida")};
+function home(){cur=-1;const tot=D.reduce((a,g)=>a+g.s.length,0),sv=D.reduce((a,g)=>a+cnt(g),0);
+$("app").innerHTML=(stored?`<div class="ban on" id="rb"><span>Encontramos un borrador sin guardar del ${stored.t}.</span><span><button class="btn" id="rs">Restaurar</button><button class="btn sec" id="ds">Descartar</button></span></div>`:"")+
+`<section class="card"><h2>Resumen del cierre</h2><p class="st">Cierre de notas: <b>viernes 5 p. m.</b> · ${sv} de ${tot} notas registradas</p><div class="bar"><i style="width:${sv/tot*100}%"></i></div></section><div class="gl">`+
+D.map((g,i)=>{const n=cnt(g),p=Math.round(n/g.s.length*100);return `<button class="g" data-i="${i}"><div class="ring" style="--p:${p}"><span>${p}%</span></div><div><b>${GN[i][0]}</b><small>${GN[i][1]}</small><small>${n} de ${g.s.length} notas · faltan ${g.s.length-n}</small></div></button>`}).join("")+`</div>`;
+document.querySelectorAll(".g").forEach(b=>b.onclick=()=>group(+b.dataset.i));
+if(stored){$("rs").onclick=()=>{stored.D.forEach((x,i)=>Object.assign(D[i],x));stored=null;toast("Borrador restaurado");home()};$("ds").onclick=()=>{try{localStorage.removeItem("cv-notas")}catch(e){}stored=null;home()}}
+window.scrollTo(0,0)}
+function group(i){cur=i;const g=D[i];
+$("app").innerHTML=`<button class="btn sec" id="bk">← Volver a mis grupos</button><div class="card" style="margin-top:12px">
+<div class="top"><h2 style="margin:0">${GN[i][0]} · ${GN[i][1]}</h2><span class="st" id="ss">Sin cambios</span></div>
+<div class="ban" id="er"><span>Sin conexión. No se pudo guardar; tus cambios siguen como borrador.</span><button class="btn sec" id="rt">Reintentar</button></div>
+<div class="top"><b id="cnt"></b><div class="bar"><i id="pg"></i></div><span class="st" id="av"></span></div>
+<div class="tools"><input type="search" id="q" placeholder="Buscar estudiante" aria-label="Buscar estudiante"><label class="st"><input type="checkbox" id="fp"> Solo pendientes</label><button class="btn sec" id="pb">Pegar columna</button></div>
+<p class="st">Tip: usa Enter o las flechas para pasar al siguiente estudiante.</p>
+<div id="tb">`+g.s.map((r,k)=>`<div class="r" data-n="${r.n.toLowerCase()}"><label for="i${k}">${r.n}</label><input id="i${k}" inputmode="decimal" autocomplete="off" placeholder="0.0 - 5.0" value="${r.v}"><span class="chip" id="c${k}"></span><div class="msg" id="m${k}" hidden>Escribe un valor entre 0.0 y 5.0 (por ejemplo 3.8).</div></div>`).join("")+`</div>
+<label for="ob" style="display:block;margin-top:14px"><b>Observaciones del grupo</b> <small class="st" id="oc"></small></label>
+<div class="chips" id="ch"></div><textarea id="ob" rows="3" maxlength="200" placeholder="Retroalimentación para el grupo">${""}</textarea><div class="msg" id="om" hidden style="color:var(--err);font-size:13px">Quita los caracteres no permitidos: &lt; &gt; { } [ ] \\</div>
+<div class="act"><button class="btn" id="sv">Guardar notas</button><button class="btn sec" id="un">Deshacer último guardado</button></div></div>
+<div class="card"><h2>Historial de cambios</h2><div id="hs"></div></div>`;
+$("ob").value=g.obs;
+$("bk").onclick=home;$("rt").onclick=()=>off?toast("Aún sin conexión"):save();
+g.s.forEach((r,k)=>{const e=$("i"+k);e.addEventListener("input",()=>{const x=g.s[k];x.v=e.value;x.s=x.v===""?"pendiente":(x.v===x.saved?"guardado":"borrador");ref();auto()});
+e.addEventListener("keydown",ev=>{const d=ev.key==="Enter"||ev.key==="ArrowDown"?1:ev.key==="ArrowUp"?-1:0;if(!d)return;ev.preventDefault();const L=[...document.querySelectorAll("#tb .r")].filter(x=>x.style.display!=="none").map(x=>x.querySelector("input"));const j=L.indexOf(e)+d;if(L[j])L[j].focus()})});
+$("q").oninput=$("fp").onchange=flt;
+$("ob").addEventListener("input",()=>{g.obs=$("ob").value;g.od=true;ref();auto()});
+$("ch").innerHTML=["Excelente participación","Debe reforzar el taller 2","Entregó fuera de plazo","Buen trabajo en equipo"].map(t=>`<button type="button">${t}</button>`).join("");
+document.querySelectorAll("#ch button").forEach(b=>b.onclick=()=>{const o=$("ob");o.value=((o.value?o.value+" ":"")+b.textContent+".").slice(0,200);o.dispatchEvent(new Event("input"))});
+$("sv").onclick=save;$("un").onclick=undo;$("pb").onclick=()=>{$("pt").value="";$("ps").textContent="";$("pa").disabled=true;$("dg").showModal()};
+setNet();ref();rh();window.scrollTo(0,0)}
+function flt(){const q=$("q").value.trim().toLowerCase(),f=$("fp").checked,g=D[cur];document.querySelectorAll("#tb .r").forEach((r,k)=>{r.style.display=(!q||r.dataset.n.includes(q))&&(!f||g.s[k].s==="pendiente")?"":"none"})}
+function ref(){const g=D[cur];let bad=false,dr=0,sum=0,n=0;
+g.s.forEach((r,k)=>{const b=chk(r.v)===false;bad=bad||b;if(b)r.s="pendiente";$("i"+k).classList.toggle("bad",b);$("m"+k).hidden=!b;if(r.s==="borrador")dr++;if(chk(r.v)){sum+=parseFloat(r.v.replace(",","."));n++}const c=$("c"+k);c.textContent=r.s;c.className="chip "+r.s;c.parentNode.classList.toggle("pend",r.s==="pendiente")});
+const ob=/[<>{}\[\]\\]/.test(g.obs);$("ob").classList.toggle("bad",ob);$("om").hidden=!ob;$("oc").textContent=g.obs.length+" / 200";
+const sv=cnt(g);$("cnt").textContent=sv+" / "+g.s.length+" guardadas";$("pg").style.width=sv/g.s.length*100+"%";$("av").textContent=n?"Promedio: "+(sum/n).toFixed(2):"";
+$("sv").disabled=bad||ob||(dr===0&&!g.od);$("un").disabled=!g.prev}
+function auto(){$("ss").textContent="Escribiendo…";clearTimeout(tm);tm=setTimeout(()=>{persist();$("ss").innerHTML=off?"Borrador local · <b>sin conexión</b>":"Borrador guardado · <b>"+hr()+"</b>"},800)}
+setInterval(()=>{if(cur>=0)persist()},30000);
+function save(){const g=D[cur];if(off){$("er").classList.add("on");toast("No se pudo guardar: sin conexión");return}
+g.prev=JSON.parse(JSON.stringify({s:g.s,obs:g.obs,od:g.od}));const ch=[];
+g.s.forEach(r=>{if(r.s==="borrador"){ch.push({n:r.n,o:r.saved,v:nrm(r.v)});r.v=nrm(r.v);r.saved=r.v;r.s="guardado"}});
+g.hist.unshift({t:hr(),ch,obs:g.od});g.od=false;persist();group(cur);$("ss").innerHTML="Guardado · <b>"+hr()+"</b>";toast("✓ Notas guardadas a las "+hr())}
+function undo(){const g=D[cur];Object.assign(g,g.prev);g.prev=null;g.hist.unshift({t:hr(),ch:[],obs:false,u:true});persist();group(cur);toast("Último guardado deshecho")}
+function rh(){const g=D[cur];$("hs").innerHTML=g.hist.length?g.hist.map((h,hi)=>`<div class="hi"><b>${h.t}</b> · ${h.u?"Se deshizo el guardado anterior":h.ch.length+" nota(s)"+(h.obs?" y observación":"")}<ul>${h.ch.map((c,ci)=>`<li>${c.n}: ${c.o||"—"} → <b>${c.v}</b> <button class="lk" data-h="${hi}" data-c="${ci}">Restaurar anterior</button></li>`).join("")}</ul></div>`).join(""):'<p class="st">Aún no hay cambios guardados.</p>';
+document.querySelectorAll(".lk").forEach(b=>b.onclick=()=>{const c=g.hist[b.dataset.h].ch[b.dataset.c],k=g.s.findIndex(r=>r.n===c.n),r=g.s[k];r.v=c.o;r.s=r.v===""?"pendiente":(r.v===r.saved?"guardado":"borrador");$("i"+k).value=r.v;ref();auto();toast("Valor anterior restaurado como borrador")})}
+let pv=[];
+$("pc").onclick=()=>$("dg").close();
+$("pr").onclick=()=>{const g=D[cur],L=$("pt").value.split(/\r?\n/).map(x=>x.split("\t")[0].trim()).filter(x=>x!=="");pv=[];let bad=0;
+L.slice(0,g.s.length).forEach((x,k)=>{if(chk(x))pv.push([k,nrm(x)]);else bad++});const ex=Math.max(0,L.length-g.s.length);
+$("ps").textContent=pv.length?`Se asignarán ${pv.length} nota(s) desde ${g.s[0].n}.`+(bad?` ${bad} valor(es) inválido(s) se omitirán.`:"")+(ex?` ${ex} línea(s) sobrantes se ignoran.`:""):"No hay valores válidos entre 0.0 y 5.0.";$("pa").disabled=!pv.length};
+$("pa").onclick=()=>{const g=D[cur];pv.forEach(([k,v])=>{const r=g.s[k];r.v=v;r.s=v===r.saved?"guardado":"borrador";$("i"+k).value=v});$("dg").close();ref();auto();toast(pv.length+" nota(s) cargadas como borrador. Revisa y guarda.")};
+setNet();home();
+</script></body></html>
